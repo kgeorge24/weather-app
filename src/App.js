@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Search from "./components/Search/Search";
 import "./App.css";
+import Header from "./components/Header/Header";
 
 function App() {
   const [fiveDayWeatherState, setFiveDayWeatherState] = useState([]);
@@ -30,10 +31,13 @@ function App() {
     const getZipCodeLocationURL = `http://api.openweathermap.org/geo/1.0/zip?zip=${searchState}&appid=27276c73470430251f04c6c66c51f72d`;
 
     if (parseInt(searchState)) {
-      console.log("Its a Number!");
-      fetchHandler(getZipCodeLocationURL, setLocationResults);
+      fetch(getZipCodeLocationURL)
+        .then((response) => response.json())
+        .then((data) => {
+          setLocationResults(data);
+          getWeatherResults(data);
+        });
     } else {
-      console.log("Not a Number!");
       fetchHandler(getCityLocationURL, setLocationResults);
       setShowResults(true);
     }
@@ -42,7 +46,7 @@ function App() {
   // Retrieves current weather and 5day weather for selected city.
   const getWeatherResults = (result) => {
     const fiveDayWeatherURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${result.lat}&lon=${result.lon}&units=imperial&appid=27276c73470430251f04c6c66c51f72d`;
-    
+
     const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${result.lat}&lon=${result.lon}&units=imperial&appid=27276c73470430251f04c6c66c51f72d`;
 
     setSearchState("");
@@ -61,6 +65,9 @@ function App() {
         searchResults={locationResults}
         showResults={showResults}
       />
+      {Object.keys(currentWeatherState).length > 0 ? (
+        <Header currentWeather={currentWeatherState} />
+      ) : null}
     </div>
   );
 }

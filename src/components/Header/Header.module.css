@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin: 30px 0px;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.header > div:first-of-type h3 {
+    font-weight: normal;
+    
+}
+
+.header > div {
+    width: 40%;
+    max-width: 150px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.header > div > h1 {
+    padding-left: 10px;
+}
+
+.header > div > p {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.header > div:last-of-type > h3 {
+    width: 100%;
+    display: flex;
+}
+
+.header > div > h3 > span {
+    width: 50%;
+}
