@@ -2,6 +2,7 @@ import { useState } from "react";
 import Search from "./components/Search/Search";
 import "./App.css";
 import Header from "./components/Header/Header";
+import HourlyForecast from "./components/HourlyForecast/HourlyForecast";
 
 function App() {
   const [fiveDayWeatherState, setFiveDayWeatherState] = useState([]);
@@ -67,6 +68,9 @@ function App() {
       />
       {Object.keys(currentWeatherState).length > 0 ? (
         <Header currentWeather={currentWeatherState} />
+      ) : null}
+      {Object.keys(fiveDayWeatherState).length > 0 ? (
+        <HourlyForecast fiveDayWeather={fiveDayWeatherState} />
       ) : null}
     </div>
   );
