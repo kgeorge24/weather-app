@@ -42,17 +42,20 @@ function App() {
   // Displays the other components one the forecast weather has been received.
   const displayWeatherInfo = () => {
     if (Object.keys(forecastWeatherState).length > 0) {
-      const {current, forecast, location} = forecastWeatherState
+      const { current, forecast, location } = forecastWeatherState;
       return (
         <React.Fragment>
-          <Header currentWeather={current} location={location}/>
-          <HourlyForecast forecast={forecast}/>
+          <Header
+            currentWeather={current}
+            location={location}
+            forecast={forecast}
+          />
+          {/* <HourlyForecast forecast={forecast}/> */}
         </React.Fragment>
       );
     }
   };
 
-  console.log("This is the forecast weather", forecastWeatherState);
   return (
     <div className="App">
       <Search
@@ -60,7 +63,7 @@ function App() {
         searchHandler={searchHandler}
         searchState={searchState}
       />
-      {/* {displayWeatherInfo()} */}
+      {displayWeatherInfo()}
     </div>
   );
 }

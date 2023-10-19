@@ -8,13 +8,13 @@
 }
 
 .header > div:first-of-type h3 {
+    font-size: 22px;
     font-weight: normal;
     
 }
 
 .header > div {
-    width: 40%;
-    max-width: 150px;
+    max-width: 170px;
     min-width: 100px;
     text-align: center;
 }
