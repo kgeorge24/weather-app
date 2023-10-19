@@ -45,20 +45,3 @@ input[type="search"]::-webkit-search-results-decoration {
     object-fit: contain;
     width: 30px;
 }
-
-.search-container > ul {
-    list-style-type: none;
-    background-color: #264898;
-    text-align: center;
-    width: 85%;
-}
-
-.search-container > ul li button{
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-    border-bottom: 2px solid #2D4EB9;
-    width: 90%;
-    padding: 10px 0px;
-}

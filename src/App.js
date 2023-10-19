@@ -1,19 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Search from "./components/Search/Search";
 import "./App.css";
 import Header from "./components/Header/Header";
 import HourlyForecast from "./components/HourlyForecast/HourlyForecast";
 
 function App() {
-  const [fiveDayWeatherState, setFiveDayWeatherState] = useState([]);
-  const [currentWeatherState, setCurrentWeatherState] = useState({});
+  const [forecastWeatherState, setForecastWeatherState] = useState([]);
   const [searchState, setSearchState] = useState("");
-  const [locationResults, setLocationResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
 
   // Makes a get request to provided URL and saves repsonse to provided state.
-  const fetchHandler = (apiURL, settingFunction) => {
-    fetch(`${apiURL}`)
+  const fetchHandler = (apiURL, options, settingFunction) => {
+    fetch(`${apiURL}`, options)
       .then((response) => response.json())
       .then((data) => settingFunction(data));
   };
@@ -24,54 +22,45 @@ function App() {
     setSearchState(e.target.value);
   };
 
-  // Retrieves the cities that match search results
+  // Retrieves current and 3day weather for the location searched.
   const searchFormSubmitHandler = (e) => {
     e.preventDefault();
-    const getCityLocationURL = `http://api.openweathermap.org/geo/1.0/direct?q=${searchState}&limit=5&appid=27276c73470430251f04c6c66c51f72d`;
+    const forecastWeatherURL = `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${searchState}&days=3`;
 
-    const getZipCodeLocationURL = `http://api.openweathermap.org/geo/1.0/zip?zip=${searchState}&appid=27276c73470430251f04c6c66c51f72d`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "bfc0db9b15mshb030a1c6628c57ep1cbd98jsnb4eafd08d752",
+        "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
+      },
+    };
 
-    if (parseInt(searchState)) {
-      fetch(getZipCodeLocationURL)
-        .then((response) => response.json())
-        .then((data) => {
-          setLocationResults(data);
-          getWeatherResults(data);
-        });
-    } else {
-      fetchHandler(getCityLocationURL, setLocationResults);
-      setShowResults(true);
+    fetchHandler(forecastWeatherURL, options, setForecastWeatherState);
+    setSearchState("");
+  };
+
+  // Displays the other components one the forecast weather has been received.
+  const displayWeatherInfo = () => {
+    if (Object.keys(forecastWeatherState).length > 0) {
+      const {current, forecast, location} = forecastWeatherState
+      return (
+        <React.Fragment>
+          <Header currentWeather={current} location={location}/>
+          <HourlyForecast forecast={forecast}/>
+        </React.Fragment>
+      );
     }
   };
 
-  // Retrieves current weather and 5day weather for selected city.
-  const getWeatherResults = (result) => {
-    const fiveDayWeatherURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${result.lat}&lon=${result.lon}&units=imperial&appid=27276c73470430251f04c6c66c51f72d`;
-
-    const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${result.lat}&lon=${result.lon}&units=imperial&appid=27276c73470430251f04c6c66c51f72d`;
-
-    setSearchState("");
-    setShowResults(false);
-    fetchHandler(fiveDayWeatherURL, setFiveDayWeatherState);
-    fetchHandler(currentWeatherURL, setCurrentWeatherState);
-  };
-
+  console.log("This is the forecast weather", forecastWeatherState);
   return (
     <div className="App">
       <Search
         searchFormSubmitHandler={searchFormSubmitHandler}
         searchHandler={searchHandler}
-        getWeatherResults={getWeatherResults}
         searchState={searchState}
-        searchResults={locationResults}
-        showResults={showResults}
       />
-      {Object.keys(currentWeatherState).length > 0 ? (
-        <Header currentWeather={currentWeatherState} />
-      ) : null}
-      {Object.keys(fiveDayWeatherState).length > 0 ? (
-        <HourlyForecast fiveDayWeather={fiveDayWeatherState} />
-      ) : null}
+      {/* {displayWeatherInfo()} */}
     </div>
   );
 }
