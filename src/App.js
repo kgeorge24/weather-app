@@ -50,7 +50,7 @@ function App() {
             location={location}
             forecast={forecast}
           />
-          {/* <HourlyForecast forecast={forecast}/> */}
+          <HourlyForecast forecast={forecast}/>
         </React.Fragment>
       );
     }

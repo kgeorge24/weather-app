@@ -1,49 +1,29 @@
-import styles from "./HourlyForecastItem.module.css";
-import weatherImg from "../../assets/partly-cloudy-day-80.png";
 const HourlyForecastItem = (props) => {
   const { hour } = props;
+  const time = parseInt(hour.time.split(" ")[1].split(":")[0]);
 
-  const hourConverter = (time) => {
-    switch (time) {
-      case "00":
-        time = "12AM";
-        break;
-      case "03":
-        time = "3AM";
-        break;
-      case "06":
-        time = "6AM";
-        break;
-      case "09":
-        time = "9AM";
-        break;
-      case "12":
-        time = "12PM";
-        break;
-      case "15":
-        time = "3PM";
-        break;
-      case "18":
-        time = "6PM";
-        break;
-      case "21":
-        time = "9PM";
-        break;
+  const calculateTime = (hour) => {
+    if (time < 1) {
+      return "12AM";
+    } else if (time >= 1 && time < 12) {
+      return `${Math.round(time)}AM`;
+    } else if (time === 12) {
+      return `${time}PM`;
+    } else if (time > 12 && time < 24) {
+      return `${time - 12}PM`;
     }
-    return time;
   };
+
 
   return (
     <li>
       <div>
-        <p>{hourConverter(hour.dt_txt.split(" ")[1].split(":")[0])}</p>
+        <p>{calculateTime(hour)}</p>
       </div>
       <div>
-        <img src={weatherImg} alt="" />
+        <img src={hour.condition.icon} alt="" />
       </div>
-      <div>
-        <p>{Math.round(hour.main.temp)}°</p>
-      </div>
+      <div>{<p>{Math.round(hour.temp_f)}°</p>}</div>
     </li>
   );
 };
