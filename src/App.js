@@ -3,6 +3,7 @@ import Search from "./components/Search/Search";
 import "./App.css";
 import Header from "./components/Header/Header";
 import HourlyForecast from "./components/HourlyForecast/HourlyForecast";
+import DailyForecast from "./components/DailyForecast/DailyForecast";
 
 function App() {
   const [forecastWeatherState, setForecastWeatherState] = useState([]);
@@ -50,12 +51,14 @@ function App() {
             location={location}
             forecast={forecast}
           />
-          <HourlyForecast forecast={forecast}/>
+          <HourlyForecast forecast={forecast} />
+          <DailyForecast forecast={forecast}/>
         </React.Fragment>
       );
     }
   };
 
+  console.log(forecastWeatherState);
   return (
     <div className="App">
       <Search
