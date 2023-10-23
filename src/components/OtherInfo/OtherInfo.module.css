@@ -1,20 +1,19 @@
-.daily-forecast {
-    /* border: 2px solid black; */
+.other-info {
     background-color: #264898;
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.251);
-    margin-bottom: 30px;
+    margin-bottom: 80px;
 }
 
-.daily-forecast > ul {
+.other-info > ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
     color: white;
 }
 
-.daily-forecast > ul > li {
+.other-info > ul > li {
     display: flex;
     align-items: center;
     /* margin: 10px; */
@@ -22,20 +21,22 @@
     border-bottom: 2px solid #2D4EB9;
 }
 
-.daily-forecast > ul > li img {
+.other-info > ul > li img {
     object-fit: contain;
     width: 40px;
 }
 
-.daily-forecast > ul > li > div {
-    padding: 10px 15px;
-    width: 33%;
+.other-info > ul > li > div {
+    padding: 15px 15px;
+    width: 50%;
 }
 
-.daily-forecast > ul > li > div:last-of-type {
-    display: flex;
+.other-info > ul > li > div:last-of-type {
+    width: 10%;
+    /* border: 2px solid black; */
+    margin-left: 10%;
 }
 
-.daily-forecast > ul > li > div:last-of-type p {
+.other-info > ul > li > div:last-of-type p {
    margin-right: 10px;
 }
