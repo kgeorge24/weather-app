@@ -1,0 +1,40 @@
+.daily-forecast {
+    /* border: 2px solid black; */
+    background-color: #264898;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.251);
+}
+
+.daily-forecast > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.daily-forecast > ul > li {
+    display: flex;
+    align-items: center;
+    /* margin: 10px; */
+    /* padding: 5px; */
+    border-bottom: 2px solid #2D4EB9;
+}
+
+.daily-forecast > ul > li img {
+    object-fit: contain;
+    width: 40px;
+}
+
+.daily-forecast > ul > li > div {
+    padding: 10px 15px;
+    width: 33%;
+}
+
+.daily-forecast > ul > li > div:last-of-type {
+    display: flex;
+}
+
+.daily-forecast > ul > li > div:last-of-type p {
+   margin-right: 10px;
+}
