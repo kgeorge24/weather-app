@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import HourlyForecast from "./components/HourlyForecast/HourlyForecast";
 import DailyForecast from "./components/DailyForecast/DailyForecast";
+import OtherInfo from "./components/OtherInfo/OtherInfo";
 
 function App() {
   const [forecastWeatherState, setForecastWeatherState] = useState([]);
@@ -52,7 +53,8 @@ function App() {
             forecast={forecast}
           />
           <HourlyForecast forecast={forecast} />
-          <DailyForecast forecast={forecast}/>
+          <DailyForecast forecast={forecast} />
+          <OtherInfo currentWeather={forecastWeatherState} />
         </React.Fragment>
       );
     }
