@@ -7,6 +7,7 @@ const Header = (props) => {
     <div className={styles.header}>
       <div>
         <h3>{location.name}</h3>
+        <p>3-Day Forecast</p>
       </div>
       <div>
         <h1>{Math.round(currentWeather.temp_f)}°</h1>
