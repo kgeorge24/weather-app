@@ -1,7 +1,7 @@
 import styles from "./OtherInfo.module.css";
 
 const OtherInfo = (props) => {
-  console.log(props.currentWeather.current);
+  
   return (
     <div className={styles["other-info"]}>
       <ul>
@@ -20,7 +20,7 @@ const OtherInfo = (props) => {
           <div>
             <p>{Math.round(props.currentWeather.current.humidity)}%</p>
           </div>
-        </li>{" "}
+        </li>
         <li>
           <div>
             <p>Wind Speed</p>
@@ -28,7 +28,7 @@ const OtherInfo = (props) => {
           <div>
             <p>{Math.round(props.currentWeather.current.wind_mph)}MPH</p>
           </div>
-        </li>{" "}
+        </li>
         <li>
           <div>
             <p>Gust Speed</p>

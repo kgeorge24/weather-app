@@ -40,3 +40,58 @@
 .other-info > ul > li > div:last-of-type p {
    margin-right: 10px;
 }
+
+.other-info__feels-like, .other-info__wind-gust {
+    display: none;
+}
+
+@media only screen and (min-width: 900px) {
+    .other-info__feels-like, .other-info__wind-gust {
+        display: block;
+        background-color: #264898;
+        border-radius: 10px;
+        color: white;
+        width: 207px;
+        height: 274px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.251);
+    }
+
+    .other-info__feels-like > ul, .other-info__wind-gust > ul {
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        height: 100%;
+        /* border: 2px solid black; */
+    }
+
+    .other-info__feels-like > ul > li, .other-info__wind-gust > ul > li {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .other-info__feels-like > ul > li div, .other-info__wind-gust > ul > li div {
+        height: 25%;
+    }
+
+    .other-info__feels-like > ul > li:first-of-type, .other-info__wind-gust > ul > li:first-of-type {
+        border-bottom: 4px solid #2D4EB9;
+    }
+
+    .other-info__feels-like {
+        margin-right: 50px;
+    }
+
+    .other-info__wind-gust {
+        margin-left: 50px;
+    }
+
+    .other-info__wind-gust h1 > span {
+        font-size: 20px;
+    }
+
+    .other-info__wind-gust {
+    }
+}
