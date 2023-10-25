@@ -2,7 +2,6 @@ import styles from "./Header.module.css";
 
 const Header = (props) => {
   const { currentWeather, location, forecast } = props;
-
   return (
     <div className={styles.header}>
       <div>
