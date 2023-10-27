@@ -1,5 +1,4 @@
 .daily-forecast {
-    /* border: 2px solid black; */
     background-color: #264898;
     width: 100%;
     border-radius: 10px;
@@ -17,8 +16,6 @@
 .daily-forecast > ul > li {
     display: flex;
     align-items: center;
-    /* margin: 10px; */
-    /* padding: 5px; */
     border-bottom: 2px solid #2D4EB9;
 }
 
@@ -34,6 +31,7 @@
 
 .daily-forecast > ul > li > div:last-of-type {
     display: flex;
+    justify-content: space-evenly;
 }
 
 .daily-forecast > ul > li > div:last-of-type p {
@@ -57,7 +55,6 @@
     
     .daily-forecast > ul > li {
         background-color: #264898;
-        /* border: 2px solid black; */
         border-radius: 10px;
         display: flex;
         flex-direction: column;
@@ -66,6 +63,7 @@
         width: 200px;
         height: 274px;
         margin: 0px 10px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.251);
     }
 
     .daily-forecast > ul > li img { 
@@ -85,7 +83,6 @@
 
     .daily-forecast > ul > li > div:last-of-type {
         justify-content: space-between;
-        /* border: 2px solid; */
         width: 100px;
     }
 
