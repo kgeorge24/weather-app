@@ -4,6 +4,7 @@ import HourlyForecastItem from "./HourlyForecastItem";
 const HourlyForecast = (props) => {
   const { forecast } = props;
   const unformattedDate = new Date();
+
   // formats todays date to match API structure as well as current hour
   const formatedDate = (date, increaseDayBy) => {
     const year = date.getFullYear();

@@ -16,8 +16,6 @@
 .other-info > ul > li {
     display: flex;
     align-items: center;
-    /* margin: 10px; */
-    /* padding: 5px; */
     border-bottom: 2px solid #2D4EB9;
 }
 
@@ -33,7 +31,6 @@
 
 .other-info > ul > li > div:last-of-type {
     width: 10%;
-    /* border: 2px solid black; */
     margin-left: 10%;
 }
 
@@ -62,7 +59,6 @@
         flex-direction: column;
         text-align: center;
         height: 100%;
-        /* border: 2px solid black; */
     }
 
     .other-info__feels-like > ul > li, .other-info__wind-gust > ul > li {
@@ -90,8 +86,5 @@
 
     .other-info__wind-gust h1 > span {
         font-size: 20px;
-    }
-
-    .other-info__wind-gust {
     }
 }

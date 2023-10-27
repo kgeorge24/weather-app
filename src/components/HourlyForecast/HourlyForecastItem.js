@@ -14,7 +14,6 @@ const HourlyForecastItem = (props) => {
     }
   };
 
-
   return (
     <li>
       <div>

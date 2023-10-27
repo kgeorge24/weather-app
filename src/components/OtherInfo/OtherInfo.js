@@ -1,7 +1,6 @@
 import styles from "./OtherInfo.module.css";
 
 const OtherInfo = (props) => {
-  
   return (
     <div className={styles["other-info"]}>
       <ul>
