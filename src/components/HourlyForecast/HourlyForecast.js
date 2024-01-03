@@ -22,13 +22,12 @@ const HourlyForecast = (props) => {
   const hourlyForecastItems = () => {
     // retireving all hours of forecast for current day
     const todaysForecast = forecast.forecastday.filter((day) => {
-      return day.date === formatedDate(unformattedDate, 0).date;
+      return formatedDate(new Date(day.date), 0).date === formatedDate(unformattedDate, 0).date;
     });
     // retireving all hours of forecast for next day
     const tommorowsForecast = forecast.forecastday.filter((day) => {
-      return day.date === formatedDate(unformattedDate, 1).date;
+      return formatedDate(new Date(day.date), 0).date === formatedDate(unformattedDate, 1).date;
     });
-
     // retireving specific hours of forecast for current day from time searched
     const todaysTimesToDisplay = todaysForecast[0].hour.filter((hour) => {
       return (
@@ -36,6 +35,7 @@ const HourlyForecast = (props) => {
         formatedDate(unformattedDate, 0).hour
       );
     });
+    console.log(todaysForecast[0]);
 
     let counter = 24 - todaysTimesToDisplay.length;
     let timesArray = [...todaysTimesToDisplay];
