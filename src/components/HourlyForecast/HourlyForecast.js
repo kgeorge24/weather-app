@@ -35,7 +35,6 @@ const HourlyForecast = (props) => {
         formatedDate(unformattedDate, 0).hour
       );
     });
-    console.log(todaysForecast[0]);
 
     let counter = 24 - todaysTimesToDisplay.length;
     let timesArray = [...todaysTimesToDisplay];
